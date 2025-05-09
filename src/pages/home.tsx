@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { games } from '../data/games';
 import GameCard from '../components/GameCard';
+// import '../styles/Home.module.css';
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  
+
   // Filtrar los juegos según el término de búsqueda
   const filteredGames = games.filter((game) =>
     game.titulo.toLowerCase().includes(searchTerm.toLowerCase())
@@ -19,7 +20,7 @@ const Home = () => {
   };
 
   // Suponemos que "juegos populares" son los primeros 4 juegos de la lista
-  const popularGames = games.slice(0, 4); // Aquí puedes elegir los juegos populares de cualquier manera
+  const popularGames = games.slice(0, 4);
 
   return (
     <div className="container mt-4">
@@ -47,7 +48,9 @@ const Home = () => {
           {popularGames.map((game, i) => (
             <div key={i} className={`carousel-item ${i === 0 ? 'active' : ''}`}>
               <div className="d-flex justify-content-center">
-                <GameCard game={game} />
+                <div className="card-wrapper">
+                  <GameCard game={game} />
+                </div>
               </div>
             </div>
           ))}

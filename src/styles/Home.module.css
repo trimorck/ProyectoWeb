@@ -1,0 +1,46 @@
+/* Estilo para el carrusel
+#popularGamesCarousel {
+  position: relative;
+} */
+
+/* Estilo de las tarjetas de los juegos en el carrusel */
+/* .card-wrapper {
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+} */
+
+/* Mejorar las flechas de navegación */
+/* .carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #333;
+  border-radius: 50%;
+  padding: 10px;
+} */
+
+/* Añadir efecto de transición al pasar entre diapositivas */
+/* .carousel-item {
+  transition: transform 0.5s ease;
+} */
+
+/* Hacer el carrusel responsivo */
+/* @media (max-width: 768px) {
+  .carousel-inner .carousel-item {
+    display: flex;
+    justify-content: center;
+  }
+  .carousel-inner .carousel-item .card-wrapper {
+    width: 90%;
+  }
+} */
+
+/* @media (min-width: 768px) {
+  .carousel-inner .carousel-item {
+    display: flex;
+    justify-content: space-around;
+  }
+  .carousel-inner .carousel-item .card-wrapper {
+    width: 22%;
+  }
+} */
