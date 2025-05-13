@@ -18,9 +18,8 @@ const Sidebar = () => {
     <div className="d-flex">
       {/* Sidebar */}
       <div
-        className={`d-flex flex-column bg-dark text-white shadow-sm p-3 ${
-          isSidebarOpen ? 'sidebar-expanded' : 'sidebar-collapsed'
-        }`}
+        className={`d-flex flex-column bg-dark text-white shadow-sm p-3 ${isSidebarOpen ? 'sidebar-expanded' : 'sidebar-collapsed'
+          }`}
         style={{
           width: isSidebarOpen ? '240px' : '80px',
           minHeight: '100vh',
@@ -34,23 +33,22 @@ const Sidebar = () => {
           overflowX: 'hidden', // Evita el desbordamiento horizontal
         }}
       >
-        {/* Ícono de Usuario */}
-        <div className="d-flex justify-content-center mb-3 mt-2">
-          <i className="bi bi-person-circle fs-2"></i>
-        </div>
-        
-        {/* Nombre de Usuario: Solo cuando el menú está abierto */}
-        {isSidebarOpen && (
-          <div className="text-center mb-4">
-            <p className="fs-6 mb-0">Usuario Ejemplo</p> {/* Cambiar dinámicamente más tarde */}
-          </div>
-        )}
-
         {/* Marca */}
         <div className="mb-4 d-flex align-items-center ps-2">
-          <i className="bi bi-controller fs-4 me-2 text-warning"></i>
-          {isSidebarOpen && <span className="fs-5 fw-semibold">GameStore</span>}
+          <img
+            src="/images/b5e0bd77-6c65-4dad-8ad1-ed02b07ff296.png" // ← aquí puedes poner tu ruta personalizada después
+            alt="Logo de ManaShop"
+            style={{
+              width: isSidebarOpen ? '36px' : '280x',
+              height: isSidebarOpen ? '36px' : '28px',
+              objectFit: 'contain',
+              transition: 'all 0.3s'
+            }}
+            className="me-2"
+          />
+          {isSidebarOpen && <span className="fs-5 fw-semibold">ManaShop</span>}
         </div>
+
 
         {/* Menú */}
         <ul className="nav flex-column mb-auto">
@@ -84,6 +82,7 @@ const Sidebar = () => {
             </Link>
           </li>
 
+          {/* Favoritos */}
           <li className="nav-item mb-2">
             <Link
               to="/favoritos"
@@ -91,6 +90,17 @@ const Sidebar = () => {
             >
               <i className="bi bi-heart-fill fs-5 me-2 text-danger"></i>
               {isSidebarOpen && <span>Favoritos</span>}
+            </Link>
+          </li>
+
+          {/* Perfil */}
+          <li className="nav-item mb-2">
+            <Link
+              to="/perfil"
+              className="nav-link text-white d-flex align-items-center px-2 py-2 rounded hover-bg"
+            >
+              <i className="bi bi-person fs-5 me-2"></i>
+              {isSidebarOpen && <span>Perfil</span>}
             </Link>
           </li>
         </ul>

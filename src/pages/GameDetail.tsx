@@ -51,7 +51,7 @@ const GameDetail = () => {
             <h2 className="fw-bold">{game.titulo}</h2>
             <p className="text-success fs-4 mt-3 mb-2">Precio: ${game.precio.toFixed(2)}</p>
             <p className="text-light">
-              Aquí podrías agregar una descripción real del juego, requisitos mínimos, plataformas, etc.
+              {game.descrip}
             </p>
           </div>
 

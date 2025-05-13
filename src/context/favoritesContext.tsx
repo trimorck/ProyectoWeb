@@ -1,42 +1,53 @@
-// // src/context/favoritesContext.tsx
+// context/favoritesContext.tsx
+import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
+import type { Game } from '../types';
 
-// import { createContext, useContext, useState, ReactNode } from 'react';
-// import type { Game } from '../types/index';
+type FavoritesContextType = {
+  favoritos: Game[];
+  isFavorito: (titulo: string) => boolean;
+  agregarAFavoritos: (game: Game) => void;
+  eliminarFavorito: (titulo: string) => void;
+};
 
-// interface FavoritesContextType {
-//   favoritos: Game[];
-//   addToFavorites: (game: Game) => void;
-//   removeFromFavorites: (titulo: string) => void;
-// }
+const FavoritesContext = createContext<FavoritesContextType | undefined>(undefined);
 
-// const FavoritesContext = createContext<FavoritesContextType | undefined>(undefined);
+export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
+  const [favoritos, setFavoritos] = useState<Game[]>(() => {
+    const stored = localStorage.getItem('favoritos');
+    return stored ? JSON.parse(stored) : [];
+  });
 
-// export const useFavorites = () => {
-//   const context = useContext(FavoritesContext);
-//   if (!context) {
-//     throw new Error('useFavorites must be used within a FavoritesProvider');
-//   }
-//   return context;
-// };
+  useEffect(() => {
+    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  }, [favoritos]);
 
-// interface FavoritesProviderProps {
-//   children: ReactNode;
-// }
+  const isFavorito = (titulo: string) =>
+    favoritos.some((game) => game.titulo === titulo);
 
-// export const FavoritesProvider = ({ children }: FavoritesProviderProps) => {
-//   const [favoritos, setFavoritos] = useState<Game[]>([]);
+  const agregarAFavoritos = (game: Game) => {
+    if (!isFavorito(game.titulo)) {
+      setFavoritos((prev) => [...prev, game]);
+    }
+  };
 
-//   const addToFavorites = (game: Game) => {
-//     setFavoritos((prev) => [...prev, game]);
-//   };
+  const eliminarFavorito = (titulo: string) => {
+    setFavoritos((prev) => prev.filter((g) => g.titulo !== titulo));
+  };
 
-//   const removeFromFavorites = (titulo: string) => {
-//     setFavoritos((prev) => prev.filter((game) => game.titulo !== titulo));
-//   };
+  return (
+    <FavoritesContext.Provider
+      value={{ favoritos, isFavorito, agregarAFavoritos, eliminarFavorito }}
+    >
+      {children}
+    </FavoritesContext.Provider>
+  );
+};
 
-//   return (
-//     <FavoritesContext.Provider value={{ favoritos, addToFavorites, removeFromFavorites }}>
-//       {children}
-//     </FavoritesContext.Provider>
-//   );
-// };
+// Hook personalizado
+export const useFavorites = () => {
+  const context = useContext(FavoritesContext);
+  if (!context) {
+    throw new Error('useFavorites debe usarse dentro de FavoritesProvider');
+  }
+  return context;
+};

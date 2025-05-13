@@ -5,6 +5,7 @@ import Carrito from './pages/cart'; // Página del carrito de compras
 import GameDetail from './pages/GameDetail'; // Página para mostrar los detalles del juego
 import Favoritos from './pages/Favorites'; // Página para mostrar los juegos favoritos
 import './index.css'; // Archivo de estilos globales
+import PerfilU from './pages/PerfilU';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
             <Route path="/carrito" element={<Carrito />} /> {/* Ruta del carrito */}
             <Route path="/juego/:titulo" element={<GameDetail />} /> {/* Ruta de detalles del juego */}
             <Route path="/favoritos" element={<Favoritos />} /> {/* Ruta para la página de favoritos */}
+            <Route path="/perfil" element={<PerfilU/>} />
           </Routes>
         </div>
       </div>

@@ -1,31 +1,8 @@
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { games } from '../data/games'; // Asegúrate de tener los juegos
-import type { Game } from '../types/index';
+import { useFavorites } from '../context/favoritesContext';
 
 const Favorites = () => {
-  // Obtener los favoritos desde localStorage
-  const [favoritos, setFavoritos] = useState<Game[]>(() => {
-    const storedFavoritos = localStorage.getItem('favoritos');
-    return storedFavoritos ? JSON.parse(storedFavoritos) : [];
-  });
-
-  // Función para actualizar los favoritos en localStorage
-  const actualizarFavoritosEnStorage = (favoritos: Game[]) => {
-    localStorage.setItem('favoritos', JSON.stringify(favoritos));
-  };
-
-  // Función para eliminar un juego de la lista de favoritos
-  const eliminarFavorito = (titulo: string) => {
-    const nuevosFavoritos = favoritos.filter((game) => game.titulo !== titulo);
-    setFavoritos(nuevosFavoritos);
-    actualizarFavoritosEnStorage(nuevosFavoritos); // Actualiza en localStorage
-  };
-
-  useEffect(() => {
-    // Cuando el componente se monta, actualizamos localStorage
-    actualizarFavoritosEnStorage(favoritos);
-  }, [favoritos]); // Solo cuando la lista de favoritos cambie
+  const { favoritos, eliminarFavorito } = useFavorites();
 
   return (
     <div className="container mt-5">
