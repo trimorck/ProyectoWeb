@@ -1,0 +1,93 @@
+/* Sidebar.css */
+
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: width 0.3s;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #212529; /* bg-dark */
+  color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+}
+
+.sidebar-collapsed {
+  width: 80px;
+}
+
+.sidebar-expanded {
+  width: 240px;
+}
+
+.logo-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  transition: all 0.3s;
+}
+
+.logo-img.collapsed {
+  width: 28px; /* ajusta si quieres */
+  height: 28px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.25rem;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-link:hover,
+.nav-link.hover-bg {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active {
+  border-left: 4px solid #6da4f7; /* azul bootstrap */
+  background-color: rgba(13, 110, 253, 0.1); /* leve fondo */
+  font-weight: bold;
+}
+
+
+
+.badge-cart {
+  font-size: 0.75rem;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  background-color: #dc3545; /* bg-danger */
+  color: white;
+  border-radius: 50%;
+  padding: 0.25em 0.4em;
+}
+
+.collapse-button {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.content-wrapper {
+  flex-grow: 1;
+  transition: margin-left 0.3s;
+}
