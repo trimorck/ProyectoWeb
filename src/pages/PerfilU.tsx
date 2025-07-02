@@ -1,22 +1,28 @@
-// Perfil.tsx
-import { useUser } from '../context/UserContext'; // Importa el hook useUser
+import { useEffect } from 'react';
+import { useUser } from '../context/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 const Perfil = () => {
-  const { usuario } = useUser(); // Obtiene los datos del usuario desde el contexto
+  const { usuario, setUsuario } = useUser(); // Accedemos a setUsuario
+  const navigate = useNavigate(); // Para redirigir
 
-  if (!usuario) {
-    return (
-      <div className="container py-5">
-        <p>Cargando perfil...</p>
-      </div>
-    );
-  }
+  useEffect(()=>{
+    if(!usuario){
+      navigate('/login');
+    }
+  },[usuario, navigate]);
+
+  if(!usuario) return null;
+
+  const cerrarSesion = () => {
+    setUsuario(null);        // Limpiar usuario del contexto
+    navigate('/login');      // Redirigir al login
+  };
 
   return (
     <div className="container py-5">
       <div className="card shadow-sm p-4">
         <div className="text-center mb-4">
-          {/* Muestra la foto de perfil */}
           <img
             src={usuario.foto || 'https://i.pravatar.cc/100'}
             alt="Foto de perfil"
@@ -40,13 +46,12 @@ const Perfil = () => {
           </div>
         </div>
 
-        {/* Futuras funciones */}
         <div className="mt-4 text-center">
           <button className="btn btn-outline-primary me-2" disabled>
             Editar perfil (Próximamente)
           </button>
-          <button className="btn btn-outline-danger" disabled>
-            Cerrar sesión (Próximamente)
+          <button className="btn btn-outline-danger" onClick={cerrarSesion}>
+            Cerrar sesión
           </button>
         </div>
       </div>

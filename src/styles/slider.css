@@ -59,19 +59,20 @@
   font-weight: bold;
 }
 
-
-
 .badge-cart {
   font-size: 0.75rem;
   position: absolute;
-  top: 0;
-  left: 100%;
-  transform: translate(-50%, -50%);
-  background-color: #dc3545; /* bg-danger */
+  top: 2px;
+  left: 22px; /* ajusta según icono */
+  background-color: #dc3545;
   color: white;
-  border-radius: 50%;
-  padding: 0.25em 0.4em;
+  border-radius: 999px;
+  padding: 0.25em 0.45em;
+  min-width: 18px;
+  text-align: center;
+  line-height: 1;
 }
+
 
 .collapse-button {
   margin-top: auto;

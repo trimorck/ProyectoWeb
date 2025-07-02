@@ -1,0 +1,66 @@
+/* registro.css */
+
+.registro-container {
+  background: url('/images/background-login.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+
+.registro-box {
+  background-color: rgba(33, 37, 41, 0.9); /* bg-dark con opacidad */
+  padding: 2rem;
+  border-radius: 1rem;
+  color: white;
+  width: 100%;
+  max-width: 400px;
+}
+
+.brand {
+  color: #6da4f7;
+  font-weight: bold;
+}
+
+.form-group label {
+  font-weight: 500;
+}
+
+.form-control {
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+  outline: none;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #084cdf;
+}
+
+.text-center small {
+  color: #ddd;
+}
+
+.text-center a {
+  color: #6da4f7;
+  text-decoration: none;
+}
+
+.text-center a:hover {
+  text-decoration: underline;
+}

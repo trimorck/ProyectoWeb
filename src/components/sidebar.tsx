@@ -43,11 +43,11 @@ const Sidebar = () => {
             </NavLink>
           </li>
 
-          <li className="nav-item mb-2 position-relative">
+          <li className="nav-item mb-2">
             <NavLink
               to="/carrito"
               className={({ isActive }) =>
-                `nav-link ${isActive ? 'active' : ''}`
+                `nav-link d-flex align-items-center position-relative ${isActive ? 'active' : ''}`
               }
             >
               <i className="bi bi-cart-fill fs-5 me-2"></i>

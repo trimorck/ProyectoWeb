@@ -5,6 +5,7 @@ type User = {
   nombre: string;
   email: string;
   foto?: string;
+  password: string;
 };
 
 type UserContextType = {
@@ -15,11 +16,8 @@ type UserContextType = {
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {
-  const [usuario, setUsuario] = useState<User | null>({
-    nombre: 'Zumito',
-    email: 'tomastapia956@gmail.com',
-    foto: 'https://i.pravatar.cc/100' // Simulación de avatar
-  });
+  // 🔁 Iniciar sin ningún usuario logueado
+  const [usuario, setUsuario] = useState<User | null>(null);
 
   return (
     <UserContext.Provider value={{ usuario, setUsuario }}>
