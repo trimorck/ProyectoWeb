@@ -5,7 +5,7 @@ import GameDetail from '../pages/GameDetail';
 import Favoritos from '../pages/Favorites';
 import PerfilU from '../pages/PerfilU';
 import Login from '../pages/login';
-import Registro from '../pages/Registro';
+import CrearU from '../pages/CrearUsuario';
 
 export default function Rutas() {
   return (
@@ -16,7 +16,7 @@ export default function Rutas() {
       <Route path="/favoritos" element={<Favoritos />} />
       <Route path="/perfil" element={<PerfilU />} />
       <Route path="/login" element={<Login />} />
-      <Route path='/registro' element={<Registro/>} />
+      <Route path='/crear-usuario' element={<CrearU/>} />
     </Routes>
   );
 }

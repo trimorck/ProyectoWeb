@@ -81,6 +81,19 @@ const Sidebar = () => {
               {isSidebarOpen && <span>Perfil</span>}
             </NavLink>
           </li>
+
+          {/* Nuevo item para crear usuarios */}
+          <li className="nav-item mb-2">
+            <NavLink
+              to="/crear-usuario"
+              className={({ isActive }) =>
+                `nav-link ${isActive ? 'active' : ''}`
+              }
+            >
+              <i className="bi bi-person-plus fs-5 me-2"></i>
+              {isSidebarOpen && <span>Crear Usuario</span>}
+            </NavLink>
+          </li>
         </ul>
 
         {/* Botón de colapsar */}
